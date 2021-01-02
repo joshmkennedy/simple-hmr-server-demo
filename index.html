@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHOULD RELOAD WHEN EDITED</title>
+</head>
+<body>
+  <h1>SHOULD Reload When Edited</h1>
+  <script>
+    async function registerServiceWorker() {
+        if (!"serviveWorker" in navigator) return;
+        const reg = await navigator.serviceWorker
+          .register("/sw.js")
+          .catch((e) => console.log(e));
+        if (reg) {
+          console.log("registered:", reg);
+        }
+      }
+      registerServiceWorker();
+
+  </script>
+</body>
+</html>
